@@ -94,8 +94,8 @@ def take_action(regions):
         movement.set_linear_y(-vy)
     else:
         movement.set_description('case 7 - Far')
-        movement.set_linear_x(vx)
-        movement.set_linear_y(0)
+        movement.set_linear_x(0)
+        movement.set_linear_y(-vy)
 
     rospy.loginfo(movement.state_description)
     msg.linear.x = movement.linear_x
