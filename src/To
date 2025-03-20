@@ -1,0 +1,23 @@
+7[?47h[>4;2m[?1h=[?2004h[1;10r[?12h[?12l[22;2t[22;1t[29m[m[H[2J[?25l[10;1H<][2;1H[1m[34m~                              [3;1H~                              [4;1H~                              [5;1H~                              [6;1H~                              [7;1H~                              [8;1H~                              [9;1H~                              [m[10;17H0,0-1      All[1;1H[?25h[?25l[10;1H[31mW10: Warning: Changing a reado[m
+[9;31H[31mn[10;1Hly file[m
+[32mPress ENTER or type command to[m
+[9;31H[32m [10;1Hcontinue[?2004l[?2004h[m[1;1H[3L[2;1H[1m[34m~                              [3;1H~                              [m[10;1H[K[10;17H0,0-1      All[1;1H[?25h[?25l[10;1H[1m-- INSERT --[m[10;17H[K[10;17H0,1[8CAll[1;1H- picture containing:
+  - rviz screen where you can ss[3;1Hee the lidar distances[3;23H[K[4;1H  - terminal running the "rubott[5;1H_lidar_test_custom.launch" withh[6;1H distances readings[6;20H[K[7;1H- the rubot_lidar_test_custom.pp[8;1Hy[8;2H[K[9;1H[K[10;17H374,1      Bot[9;1H[?25h[?25l[1m[34m~                              [m[10;19H3,33[8;2H[?25h[?25l[1m[34m~                              [m[10;22H2[8;1H[?25h[?25l[7;31H[K[10;22H1[7;31H[?25h[?25l[7;30H[K[10;22H0[7;30H[?25h[?25l[10;1H[K[10;17H373,29     Bot[7;29H[?25h[?25l
+
+
+..[10;17H[K[10;17H373,29     Bot[7;29H[?25h[?25l[10;17H[K[10;17H373,29     Bot[7;29H[?25h[?25l[10;17H[K[10;17H373,29     Bot[7;29H[?25h[?25l[10;17H[K[10;17H373,29     Bot[7;29H[?25h[?25l[10;17H[K[10;17H373,29     Bot[7;29H[?25h[?25l[10;17H[K[10;17H373,29     Bot[7;29H[?25h[29m[m[H[2J[?25l[1;1HUpload a zip file including:
+- picture containing:
+  - rviz screen where you can see the ll[4;1Hidar distances
+  - terminal running the "rubot_lidar_tt[6;1Hest_custom.launch" with distances readii[7;1Hngs
+- the rubot_lidar_test_custom
+[1m[34m~                                      [10;1H~                                      [m[11;22H373,29[8CBot[8;29H[?25h[29m[m[H[2J[?25l[1;1H- picture containing:
+  - rviz screen where you can see the ll[3;1Hidar distances
+  - terminal running the "rubot_lidar_tt[5;1Hest_custom.launch" with distances readii[6;1Hngs
+- the rubot_lidar_test_custom
+[1m[34m~                                      [9;1H~                                      [m[10;22H373,29[8CBot[7;29H[?25h
+
+
+[?2004l[?1l>[>4;m[2J[?47l8Vim: Caught deadly signal HUP
+Vim: preserving files...
+Vim: Finished.
+[10;1H[23;2t[23;1t
