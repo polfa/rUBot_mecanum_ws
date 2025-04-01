@@ -47,16 +47,6 @@ class Movement:
     
 
 def clbk_laser(msg):
-    # # En la primera ejecucion, calculamos el factor de correcion
-    # global isScanRangesLengthCorrectionFactorCalculated
-    # global scanRangesLengthCorrectionFactor
-    
-    # if not isScanRangesLengthCorrectionFactorCalculated:
-    #         scanRangesLengthCorrectionFactor = len(msg.ranges) / 360
-    #         isScanRangesLengthCorrectionFactorCalculated = True
-
-    # regions = Regions(msg)
-
     take_action(msg)
 
 

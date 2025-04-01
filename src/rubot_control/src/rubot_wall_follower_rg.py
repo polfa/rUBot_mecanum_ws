@@ -49,6 +49,7 @@ def take_action(regions):
 
     state_description = ''
 
+    # TODO: El robot no rota
     if regions['front'] > d and regions['fright'] > 2*d and regions['right'] > 2*d and regions['bright'] > 2*d:
         state_description = 'case 1 - nothing'
         linear_x = vx
@@ -69,6 +70,7 @@ def take_action(regions):
         state_description = 'case 5 - bright'
         linear_x = 0
         angular_z = -wz
+    # TODO: Fer el cas de Back
     else:
         state_description = 'case 6 - Far'
         linear_x = vx
