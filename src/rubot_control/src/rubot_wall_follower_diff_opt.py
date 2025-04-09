@@ -9,6 +9,7 @@ d = 0
 vx = 0
 wz = 0
 vf = 0
+message = None
 
 isScanRangesLengthCorrectionFactorCalculated = False
 scanRangesLengthCorrectionFactor = 2
@@ -16,10 +17,10 @@ scanRangesLengthCorrectionFactor = 2
 class Regions:
  def __init__(self, msg):
     bright_min = int(30 * scanRangesLengthCorrectionFactor)
-    bright_max = int(90 * scanRangesLengthCorrectionFactor)
-    right_min = int(90 * scanRangesLengthCorrectionFactor)
-    right_max = int(120 * scanRangesLengthCorrectionFactor)
-    fright_min = int(120 * scanRangesLengthCorrectionFactor)
+    bright_max = int(75 * scanRangesLengthCorrectionFactor)
+    right_min = int(75 * scanRangesLengthCorrectionFactor)
+    right_max = int(135 * scanRangesLengthCorrectionFactor)
+    fright_min = int(135 * scanRangesLengthCorrectionFactor)
     fright_max = int(170 * scanRangesLengthCorrectionFactor)
     front_min= int(170 * scanRangesLengthCorrectionFactor)
     front_max = int(190 * scanRangesLengthCorrectionFactor)
@@ -47,7 +48,8 @@ class Movement:
     
 
 def clbk_laser(msg):
-    take_action(msg)
+    global message
+    message = msg
 
 
 def take_action(message_callback):
@@ -84,7 +86,7 @@ def take_action(message_callback):
         movement.set_angular_z(-wz)
     else:
         movement.set_description('case 6 - Far')
-        movement.set_linear_x(0)
+        movement.set_linear_x(vx/2)
         movement.set_angular_z(-wz)
 
     rospy.loginfo(movement.state_description)
@@ -120,7 +122,12 @@ def main():
     vx= rospy.get_param("~forward_speed")
     wz= rospy.get_param("~rotation_speed")
     vf= rospy.get_param("~speed_factor")
-    
+    local_scan = None
+    while not rospy.is_shutdown():
+        if local_scan != message:
+            local_scan = message
+            take_action(local_scan)
+
     
 if __name__ == '__main__':
     try:
