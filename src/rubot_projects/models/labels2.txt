@@ -1,0 +1,5 @@
+0 Turn_Right
+1 Turn_Left
+2 forbidden_direction
+3 give_way
+4 Stop
