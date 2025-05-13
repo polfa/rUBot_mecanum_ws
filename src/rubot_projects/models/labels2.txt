@@ -3,3 +3,4 @@
 2 forbidden_direction
 3 give_way
 4 Stop
+5 None

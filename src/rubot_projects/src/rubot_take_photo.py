@@ -21,8 +21,6 @@ class TakePhoto:
     def callback(self, data):
         try:
             self.cv_image = self.bridge.imgmsg_to_cv2(data, "bgr8")
-            cv.putText(self.cv_image, f"Image {self.image_count}", (100, 290),
-                       cv.FONT_HERSHEY_TRIPLEX, 1, (0, 255, 255), 1)
             self.image_received = True
         except CvBridgeError as e:
             rospy.logerr(e)
@@ -40,11 +38,11 @@ if __name__ == '__main__':
     rospy.init_node('take_photo', anonymous=False)
 
     img_topic = rospy.get_param('~image_topic', '/usb_cam/image_raw')
-    image_dir = rospy.get_param('~image_dir', '/home/user/rUBot_mecanum_ws/src/rubot_projects/photos')
+    image_dir = rospy.get_param('~image_dir', '/home/user/rUBot_mecanum_ws/src/rubot_projects/photos/Nothing')
 
     camera = TakePhoto(img_topic, image_dir)
 
-    rate = rospy.Rate(1)  # 1 Hz = una foto por segundo
+    rate = rospy.Rate(0.5)  # 1 Hz = una foto por segundo
     while not rospy.is_shutdown():
         camera.save_picture()
         rate.sleep()

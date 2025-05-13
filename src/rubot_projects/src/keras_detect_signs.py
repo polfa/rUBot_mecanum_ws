@@ -46,6 +46,7 @@ class KerasImageClassifier:
             class_name = self.labels[class_index]
 
             rospy.loginfo(f"Predicted: {class_name}")
+            rospy.loginfo(f"Predictions: {predictions}")
             self.pub.publish(class_name)
 
         except Exception as e:

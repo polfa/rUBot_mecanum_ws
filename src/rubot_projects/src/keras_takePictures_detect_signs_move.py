@@ -30,13 +30,14 @@ class KerasImageClassifier:
         self.cmd_vel_pub = rospy.Publisher("/cmd_vel", Twist, queue_size=1) # Publisher para Twist
 
         # Capturas
-        self.capture_enabled = True
+        self.capture_enabled = False
         self.capture_dir = os.path.expanduser("~/rUBot_mecanum_ws/src/rubot_projects/rUBot_captures")
         os.makedirs(self.capture_dir, exist_ok=True)
         self.create_class_dirs()  # Crear carpetas por clase
 
         self.last_capture_time = time.time()
         self.capture_interval = 1.0  # segundos
+        self.lastClass = None
 
         # Control de captura por topic
         rospy.Subscriber("/capture_toggle", Bool, self.toggle_callback)
@@ -71,25 +72,25 @@ class KerasImageClassifier:
             class_index = np.argmax(predictions)
             class_name = self.labels[class_index]
             rospy.loginfo(f"Detectado: {class_name}")
+
+            # TODO Crear un nou node per separar detecció i moviment que es subscrigui al node predicted_class
             self.class_pub.publish(class_name)
 
             # Publicar mensaje Twist basado en la clase detectada
             twist_msg = Twist()
-            if class_name == "stop":
+            if class_name == "Stop":
                 twist_msg.linear.x = 0.0
                 twist_msg.angular.z = 0.0
-            elif class_name == "adelante":
-                twist_msg.linear.x = 0.2
-                twist_msg.angular.z = 0.0
-            elif class_name == "izquierda":
+            elif class_name == "Turn_Right":
                 twist_msg.linear.x = 0.1
                 twist_msg.angular.z = 0.3
-            elif class_name == "derecha":
+            elif class_name == "Turn_Left":
                 twist_msg.linear.x = 0.1
                 twist_msg.angular.z = -0.3
-            else:
+            elif class_name == "Give_Way" and self.lastClass is not class_name:
                 twist_msg.linear.x = 0.0
-                twist_msg.angular.z = 0.0
+                twist_msg.angular.z = 0.0   
+            self.lastClass = class_name
             self.cmd_vel_pub.publish(twist_msg)
 
             # Guardar imagen si está activado
