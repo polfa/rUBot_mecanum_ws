@@ -1,3 +1,12 @@
-<launch>
+<!-- <launch>
     <node pkg="rubot_projects" type="keras_takePictures_detect_signs_move.py" name="keras_takePictures_detect_signs_move" output="screen"/>
+</launch> -->
+
+<launch>
+    <!-- Node de Detecció de Senyals -->
+    <node pkg="rubot_projects" type="keras_detector_node.py" name="keras_detector_node" output="screen"></node>
+
+    <!-- Node d'Actuació del Robot -->
+    <node pkg="rubot_projects" type="robot_actuator_node.py" name="robot_actuator_node" output="screen"></node>
+
 </launch>
