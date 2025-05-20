@@ -12,8 +12,8 @@ class KerasImageClassifier:
     def __init__(self):
         # Paths
         script_dir = os.path.dirname(os.path.realpath(__file__))
-        model_path = rospy.get_param("~model_path", os.path.join(script_dir, "../models/keras_model.h5"))
-        labels_path = rospy.get_param("~labels_path", os.path.join(script_dir, "../models/labels.txt"))
+        model_path = rospy.get_param("~model_path", os.path.join(script_dir, "../models/keras_model2.h5"))
+        labels_path = rospy.get_param("~labels_path", os.path.join(script_dir, "../models/labels2.txt"))
 
         # Load model and labels
         self.model = load_model(model_path)
